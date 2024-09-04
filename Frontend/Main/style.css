@@ -48,7 +48,7 @@ body {
     height : 23px;
     width : 7px;
     border-radius : 20px;
-    background-color : rgb(254, 115, 46);
+    background-color : #FB6D6A;
 }
 
 .topic button {
@@ -59,7 +59,7 @@ body {
 }
 
 .topic button span {
-    color : rgb(254, 115, 46);
+    color : #FB6D6A;
 }
 
 .container {

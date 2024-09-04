@@ -18,7 +18,7 @@ body {
 
 .nav {
     height : 60px;
-    background-color : rgb(235, 100, 100);
+    background-color : #FB6D6A;
     display : flex;
     justify-content : center;
     align-items : center;
@@ -40,7 +40,7 @@ body {
 
 header {
     height : 100px;
-    background-color : rgb(235, 100, 100);
+    background-color : #FB6D6A;
     color : white;
     padding : 0 30px;
     /* line-height : px; */
@@ -65,8 +65,8 @@ header {
     flex-direction : column;
     align-items : center;
     justify-content : center;
-    color : rgb(235, 100, 100);
-    border-bottom : 4px solid rgb(235, 100, 100);
+    color : #FB6D6A;
+    border-bottom : 4px solid #FB6D6A;
 }
 
 .box i {
@@ -126,8 +126,8 @@ header {
     margin : 10px 0;
     border : none;
     border-radius : 10px;
-    border : 1px solid rgb(235, 100, 100);
-    color : rgb(235, 100, 100);
+    border : 1px solid #FB6D6A;
+    color : #FB6D6A;
     font-size : medium;
     font-weight : bold;
 }

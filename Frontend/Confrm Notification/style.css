@@ -38,7 +38,7 @@ body {
     display : flex;
     justify-content : center;
     align-items : center;
-    background-color : rgba(233, 56, 24, 0.824);
+    background-color : #FB6D6A;
     color : white;
     font-weight : 900;
 }
@@ -63,7 +63,7 @@ body {
     font-weight: 900;
     border : none;
     border-radius : 20px;
-    background-color : rgba(233, 56, 24, 0.824);
+    background-color : #FB6D6A;
 }
 
 .first {
