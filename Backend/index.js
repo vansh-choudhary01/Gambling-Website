@@ -1,7 +1,8 @@
 const express = require("express");
 const path = require("path");
 const app = express();
-const port = 8080;
+const mongoose = require('mongoose');
+const User = require("./db.js");
 
 app.set("views", path.join(__dirname, "../Frontend"));
 app.set("view engine", "ejs");
@@ -15,7 +16,11 @@ app.get("/login", (req, res) => {
     res.render("LoginPage/index.ejs");
 })
 
-app.post("/login", (req, res) => {
+app.get("/signUp", (req, res) => {
+    res.render("SignUpPage/index.ejs");
+})
+
+app.post("/game", (req, res) => {
     res.render("Main/index.ejs");
 })
 
