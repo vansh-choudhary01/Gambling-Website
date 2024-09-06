@@ -7,7 +7,7 @@ async function main() {
 }
 
 const userSchema = new mongoose.Schema({
-    email : String,
+    // email : String,
     password : String,
     mobile : Number
 })

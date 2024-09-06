@@ -3,8 +3,14 @@
     margin : 0;
 }
 
+html {
+    display: flex;
+    justify-content: center;
+}
+
 body {
-    padding : 0 34%;
+    /* padding : 0 34%; */
+    width : 390px;
     /* padding-right : 68%; */
     background-color : gray;
     font-family :'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -18,7 +24,7 @@ body {
 }
 
 .nav {
-    width : 385px;
+    width : 370px;
     height : 40px;
     display : flex;
     justify-content : space-between;
@@ -115,7 +121,7 @@ body {
     justify-content : space-between;
     align-items : center;
     padding : 3px 10px;
-    font-size : 13px;
+    font-size : 12px;
     margin : 20px 0;
     border-radius : 30px;
     background-color : white;
@@ -175,9 +181,10 @@ body {
 }
 
 .timer {
-    height : 108px;
+    height : 104px;
     background-image: url(img/wingoissue-0c200440.png);
-    background-size : cover;
+    background-size :contain;
+    background-position: center;
     margin : 20px 0;
     display : flex;
     color : white;
@@ -297,7 +304,7 @@ body {
 }
 
 .last5 .bolls img{
-    height : 43%;
+    height : 39%;
     margin : 5px;
 }
 
@@ -371,7 +378,7 @@ body {
     font-size : 15px;
     font-weight : 600;
     opacity : 1;
-    color :rgba(78, 78, 78, 0.5);
+    color :rgba(78, 78, 78, 0.7);
     font-family : inherit;
     background-color : white;
 }
@@ -424,7 +431,7 @@ body {
     background-color :#FB6D6A;
     color : white;
     font-weight : 600;
-    font-size : 15px;
+    font-size : 13px;
     display : flex;
     justify-content: center;
     align-items: center;
