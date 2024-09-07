@@ -8,8 +8,14 @@ async function main() {
 
 const userSchema = new mongoose.Schema({
     // email : String,
-    password : String,
-    mobile : Number
+    password : {
+      type : String,
+      require : true
+    },
+    mobile : {
+      type : Number,
+      require : true
+    }
 })
 
 const User = new mongoose.model("User", userSchema);

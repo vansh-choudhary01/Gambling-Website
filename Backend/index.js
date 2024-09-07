@@ -18,16 +18,17 @@ app.get("/", (req, res) => {
 })
 
 app.get("/login", (req, res) => {
-    res.render("LoginPage/index.ejs");
+    let wrong = false;
+    res.render("LoginPage/index.ejs", {wrong});
 })
 
 app.get("/signUp", (req, res) => {
-    res.render("SignUpPage/index.ejs");
+    let wrong = false;
+    res.render("SignUpPage/index.ejs", {wrong});
 })
 
 app.get("/game", checkUser);
 app.post("/game", addUser);
-
 app.get("/colors", bigSmall);
 
 app.listen(8080);
