@@ -222,3 +222,8 @@ a {
     position : relative;
     top : 13px;
 }
+
+.nav a {
+    width : 10px;
+    color : inherit;
+}
