@@ -6,6 +6,7 @@ const app = express();
 const addUser = require("./container/add.js");
 const checkUser = require("./container/login.js");
 const bigSmall = require("./container/bigSmall.js");
+const account = require("./container/account.js");
 
 app.set("views", path.join(__dirname, "../Frontend"));
 app.set("view engine", "ejs");
@@ -30,5 +31,6 @@ app.get("/signUp", (req, res) => {
 app.get("/game", checkUser);
 app.post("/game", addUser);
 app.get("/colors", bigSmall);
+app.get("/account", account);
 
 app.listen(8080);
