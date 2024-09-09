@@ -7,16 +7,20 @@ async function main() {
 }
 
 const userSchema = new mongoose.Schema({
-    transection : Array,
-    Amount : Number,
-    password : {
-      type : String,
-      require : true
-    },
-    mobile : {
-      type : Number,
-      require : true
-    }
+  transection : Array,
+  Amount : Number,
+  total:{
+    type : Number,
+  },
+  password : {
+    type : String,
+    require : true
+  },
+  
+  mobile : {
+    type : Number,
+    require : true
+  }
 })
 
 const User = new mongoose.model("User", userSchema);
