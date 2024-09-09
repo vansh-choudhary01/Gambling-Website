@@ -1,7 +1,9 @@
 const User = require("./db.js");
 const express = require("express");
 const app = express();
+
 const path = require("path");
+
 
 const addUser = require("./container/add.js");
 const checkUser = require("./container/login.js");
@@ -33,7 +35,7 @@ app.get("/user/signUp", (req, res) => {
 
 app.get("/user/game", checkUser);
 app.post("/user/game", addUser);
-app.get("/user/colors/:id", bigSmall);
+app.post("/user/colors/:id", bigSmall);
 app.get("/user/account/:id", account);
 app.get("/user/:id", user);
 app.get("/user/bet/:id", bet);

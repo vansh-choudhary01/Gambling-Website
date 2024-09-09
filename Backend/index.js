@@ -7,7 +7,6 @@ const path = require("path");
 const route = require("./route.js");
 
 
-
 // app.get("/", (req, res) => {
 //     res.redirect("/user");                                                        
 // })
