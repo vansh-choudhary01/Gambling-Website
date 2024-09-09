@@ -1,7 +1,10 @@
 const User = require("./db.js");
 const express = require("express");
 const app = express();
+<<<<<<< HEAD
 const path = require("path");
+=======
+>>>>>>> de200f5 (for api prob)
 
 const addUser = require("./container/add.js");
 const checkUser = require("./container/login.js");
@@ -9,6 +12,7 @@ const bigSmall = require("./container/bigSmall.js");
 const account = require("./container/account.js");
 const user = require("./container/user.js");
 
+<<<<<<< HEAD
 app.set("views", path.join(__dirname, "../Frontend"));
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "../Frontend")));
@@ -36,3 +40,28 @@ app.get("/user/account/:id", account);
 app.get("/user/:id", user);
 
 module.exports = app;
+=======
+function route() {
+    app.get("/", (req, res) => {
+        res.redirect("/login");                                                        
+    })
+
+    app.get("/login", (req, res) => {
+        let wrong = false;
+        res.render("LoginPage/index.ejs", {wrong});
+    })
+    
+    app.get("/signUp", (req, res) => {
+        let wrong = false;
+        res.render("SignUpPage/index.ejs", {wrong});
+    })
+    
+    app.get("/game", checkUser);
+    app.post("/game", addUser);
+    app.get("/colors", bigSmall);
+    app.get("/account", account);
+    app.get("/:id", user);
+}
+
+module.exports = route;
+>>>>>>> de200f5 (for api prob)
