@@ -10,7 +10,7 @@ const userSchema = new mongoose.Schema({
     transection : Array,
     Amount : Number,
     total:{
-      type : String,
+      type : Number,
     },
     password : {
       type : String,
