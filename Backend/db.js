@@ -7,8 +7,11 @@ async function main() {
 }
 
 const userSchema = new mongoose.Schema({
-    transection : Array,
-    Amount : Number,
+    transaction : [],
+    balance : {
+      type : Number,
+      default : 0
+    },
     password : {
       type : String,
       require : true

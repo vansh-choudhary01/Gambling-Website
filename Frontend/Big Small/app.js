@@ -78,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         function setBg(elem, no) {
             elem.classList.add((no % 2 == 0) ? "bgred" : "bggreen");
+            return (no % 2 == 0) ? "red" : "greem";
         }
 
         function setCol(elem, no) {
@@ -117,6 +118,27 @@ document.addEventListener("DOMContentLoaded", function () {
             second.classList.add("bgviolet");
         }
         ColorUl.insertBefore(colLi, ColorUl.firstChild);
+
+        let data = {
+            number : randomNo,
+            size : randomNo >= 5 ? "Big" : "Small",
+            color : setBg(first, randomNo),
+        }
+
+        fetch('/api/data', {
+            method : 'POST',
+            headers: {
+                'Content-Type' : 'application/json',
+            },
+            body : JSON.stringify(data),
+        })
+        .then(response => response.json())
+        .then(result => {
+            console.log("Success" , result);
+        })
+        .catch(error => {
+            console.log("Error", error);
+        });
     };
 
 });

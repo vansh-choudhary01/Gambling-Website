@@ -150,4 +150,5 @@ body {
 .nav a {
     width : 10px;
     color : inherit;
+    text-decoration: none;
 }

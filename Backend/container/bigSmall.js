@@ -1,7 +1,9 @@
 const User = require("../db.js");
 
-function bigSmall(req, res) {
-    res.render("Big Small/index.ejs");
+async function bigSmall(req, res) {
+    let {id} = req.params;
+    let user = await User.findById(id);
+    res.render("Big Small/index.ejs", {user});
 }
 
 module.exports = bigSmall;

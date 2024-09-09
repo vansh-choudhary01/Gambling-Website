@@ -12,7 +12,7 @@ async function addUser(req, res) {
     let user = new User({mobile, password});
     let data = await user.save();
     // console.log(data);
-    res.render("Main/index.ejs");
+    res.redirect(`/user/${data._id}`);
 }
 
 module.exports = addUser;

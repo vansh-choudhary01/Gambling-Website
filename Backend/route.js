@@ -8,6 +8,8 @@ const checkUser = require("./container/login.js");
 const bigSmall = require("./container/bigSmall.js");
 const account = require("./container/account.js");
 const user = require("./container/user.js");
+const bet = require("./container/bet.js");
+const apiData = require("./container/apiData.js");
 
 app.set("views", path.join(__dirname, "../Frontend"));
 app.set("view engine", "ejs");
@@ -34,5 +36,7 @@ app.post("/user/game", addUser);
 app.get("/user/colors/:id", bigSmall);
 app.get("/user/account/:id", account);
 app.get("/user/:id", user);
+app.get("/user/bet/:id", bet);
+app.post("/api/data", apiData);
 
 module.exports = app;

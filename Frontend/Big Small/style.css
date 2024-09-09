@@ -339,7 +339,14 @@ body {
     justify-content : center;
 }
 
-.last5 .bigsmall div{
+.last5 .bigsmall input {
+    width : 50px;
+    border : 1px solid #FB6D6A;
+    border-radius : 15px;
+    padding: 5px;
+}
+
+.last5 .bigsmall button{
     width : 43%;
     border : 1px solid white;
     color : white;
