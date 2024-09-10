@@ -11,7 +11,7 @@ const bigSmall = require("./container/bigSmall.js");
 const account = require("./container/account.js");
 const user = require("./container/user.js");
 const bet = require("./container/bet.js");
-const apiData = require("./container/apiData.js");
+// const apiData = require("./container/apiData.js");
 
 app.set("views", path.join(__dirname, "../Frontend"));
 app.set("view engine", "ejs");
@@ -33,12 +33,13 @@ app.get("/user/signUp", (req, res) => {
     res.render("SignUpPage/index.ejs", {wrong});
 })
 
+// let data;
 app.get("/user/game", checkUser);
 app.post("/user/game", addUser);
-app.post("/user/colors/:id", bigSmall);
+app.get("/user/colors/:id", bigSmall);
 app.get("/user/account/:id", account);
+app.get("/user/bet/:id", bet.bet);
 app.get("/user/:id", user);
-app.get("/user/bet/:id", bet);
-app.post("/api/data", apiData);
-
+app.post("/api/data", bet.apiData);
+// console.log(data);
 module.exports = app;

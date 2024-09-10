@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let data = {
             number : randomNo,
-            size : randomNo >= 5 ? "Big" : "Small",
+            size : randomNo >= 5 ? "big" : "small",
             color : setBg(first, randomNo),
         }
 
@@ -132,13 +132,13 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             body : JSON.stringify(data),
         })
-        .then(response => response.json())
-        .then(result => {
-            console.log("Success" , result);
-        })
-        .catch(error => {
-            console.log("Error", error);
-        });
+        // .then(response => response.json())
+        // .then(result => {
+        //     console.log("Success" , result);
+        // })
+        // .catch(error => {
+        //     console.log("Error", error);
+        // });
     };
 
 });

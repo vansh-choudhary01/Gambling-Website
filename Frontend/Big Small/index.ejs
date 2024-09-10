@@ -124,8 +124,8 @@
             </div>
             <div class="bigsmall">
                 <input form="bet" type="number" placeholder="BET" name="amount" required>
-                <button form="bet" class="big" value="big">Big</button>
-                <button form="bet" class="small" value="small">Small</button>
+                <button form="bet" class="big" name="action" value="big">Big</button>
+                <button form="bet" class="small" name="action" value="small">Small</button>
                 <form id="bet" method="get" action="/user/bet/<%= user._id %>"></form>
             </div>
         </div>

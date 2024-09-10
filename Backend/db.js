@@ -7,6 +7,7 @@ async function main() {
 }
 
 const userSchema = new mongoose.Schema({
+  
     transaction : [],
     balance : {
       type : Number,

@@ -1,38 +1,52 @@
 const User = require("../db.js");
-// const result = require("../../Frontend/Big Small/app.js");
-const express = require("express");
-const app = express();
-app.use(express.json());
+const EventEmitter = require("events");
+const emitter = new EventEmitter();
 
-app.post("/api/data", (req, res) => {
+let ans = {};
+function apiData(req, res) {
     const data = req.body;
-
-    console.log("Data recieved from cliend : " + data);
-
+    
+    // console.log(data);
+    ans = data;
+    
+    emitter.emit('dataUpdated', ans);
     res.json({message : "Data received successfully", data : data});
-})
+}
 
 async function bet(req, res) {
     let {id} = req.params;
     let {action, amount} = req.query;
+    amount = parseFloat(amount); // Convert amount to a number
     let user = await User.findById(id);
 
+    console.log(user.balance + " " + amount);
     if(user.balance < amount) {
-        res.redirect(`/user/colors/${id}`);
+        return res.render("Big Small/index.ejs", {user});
     }
+    // user.balance -= amount;
+    // user.save();
 
-    setTimeout(async () => {
-        result = await data();
-        if(action == result.size) {
+    console.log("Waiting for data update...");
+
+    // Wait for the event to fire when data is updated
+    emitter.once('dataUpdated', (result) => {
+        console.log(result.size + " " + action);
+        if (action === result.size) {
             user.balance += amount;
             user.transaction.push(`Won ${amount * 2}`);
+            console.log("Won");
         } else {
             user.balance -= amount;
             user.transaction.push(`Lose ${amount}`);
+            console.log("Lose");
         }
-    }, 0);
+        user.save();
 
-    res.redirect(`/user/colors/${id}`);
+        // ans = {};
+        res.render("Big Small/index.ejs", {user});
+    });
+    // res.render("Big Small/index.ejs", {user});
 } 
 
-module.exports = bet;
+module.exports.bet = bet;
+module.exports.apiData = apiData;
