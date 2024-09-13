@@ -12,8 +12,9 @@ async function apiData(req, res) {
         game.history.pop();
     }
     game.history.unshift(data);
-    console.log(await game.save());
+    await game.save();
     ans = data;
+    console.log(data);
     
     emitter.emit('dataUpdated', ans);
     res.json({message : "Data received successfully", data : data});
@@ -26,7 +27,7 @@ async function bet(req, res) {
     
     let user = await User.findById(id);
     let game = await Game.findById('66e3229acbbc7a3b8f228fb5');
-    
+
     if(user.balance < amount) {
         return res.render("Big Small/index.ejs", {user, game});
     }
@@ -34,11 +35,17 @@ async function bet(req, res) {
     console.log("Waiting for data update...");
 
     // Wait for the event to fire when data is updated
-    emitter.once('dataUpdated', (result) => {
+    emitter.once('dataUpdated', async (result) => {
+        console.log(user.balance + " " + amount);
         console.log(result.size + " " + action);
-        if (action === result.size) {
-            user.balance += amount;
-            user.transaction.push(`Won ${amount * 2}`);
+        if (action === result.size || action === result.color || (action === "violet" && (result.number == 0 || result.number == 5))) {
+            if(action === "violet") {
+                user.balance += amount * 7;
+                user.transaction.push(`Won ${amount * 8}`);
+            } else {
+                user.balance += amount;
+                user.transaction.push(`Won ${amount * 2}`);
+            }
             console.log("Won");
         } else {
             user.balance -= amount;
@@ -47,6 +54,7 @@ async function bet(req, res) {
         }
         user.save();
 
+        game = await Game.findById('66e3229acbbc7a3b8f228fb5');
         res.render("Big Small/index.ejs", {user, game});
     });
 } 

@@ -270,7 +270,7 @@ body {
     margin-bottom : 10px;
 }
 
-.last5 .colors div {
+.last5 .colors .box {
     background-color : violet;
     width : 30%;
     height : 100%;

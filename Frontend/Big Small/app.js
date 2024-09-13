@@ -88,6 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             body: JSON.stringify(data),
         })
+        location.reload(true);
     }
 
     // function newChoice() {
