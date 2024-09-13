@@ -1,12 +1,18 @@
-const User = require("../db.js");
+const User = require("../db.js").user;
+const Game = require("../db.js").game;
 const EventEmitter = require("events");
 const emitter = new EventEmitter();
 
 let ans = {};
-function apiData(req, res) {
+async function apiData(req, res) {
     const data = req.body;
-    
-    // console.log(data);
+    let game = await Game.findById('66e3229acbbc7a3b8f228fb5');
+    game.period++;
+    while(game.history.length >= 10) {
+        game.history.pop();
+    }
+    game.history.unshift(data);
+    console.log(await game.save());
     ans = data;
     
     emitter.emit('dataUpdated', ans);
@@ -17,14 +23,13 @@ async function bet(req, res) {
     let {id} = req.params;
     let {action, amount} = req.query;
     amount = parseFloat(amount); // Convert amount to a number
+    
     let user = await User.findById(id);
-
-    console.log(user.balance + " " + amount);
+    let game = await Game.findById('66e3229acbbc7a3b8f228fb5');
+    
     if(user.balance < amount) {
-        return res.render("Big Small/index.ejs", {user});
+        return res.render("Big Small/index.ejs", {user, game});
     }
-    // user.balance -= amount;
-    // user.save();
 
     console.log("Waiting for data update...");
 
@@ -42,10 +47,8 @@ async function bet(req, res) {
         }
         user.save();
 
-        // ans = {};
-        res.render("Big Small/index.ejs", {user});
+        res.render("Big Small/index.ejs", {user, game});
     });
-    // res.render("Big Small/index.ejs", {user});
 } 
 
 module.exports.bet = bet;

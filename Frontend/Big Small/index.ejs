@@ -129,6 +129,7 @@
                 <form id="bet" method="get" action="/user/bet/<%= user._id %>"></form>
             </div>
         </div>
+
         <div class="history">
             <button id="first">Game history</button>
             <button>Chart</button>
@@ -138,52 +139,41 @@
             <div class="per">
                 <div class="heading">Period</div>
                 <ul>
-                    <li>20240707010914</li>
+                    <!-- <li>20240707010914</li>
                     <li>20240707010913</li>
-                    <li>20240707010912</li>
-                    <li>20240707010911</li>
-                    <li>20240707010910</li>
-                    <li>20240707010909</li>
-                    <li>20240707010908</li>
-                    <li>20240707010907</li>
-                    <li>20240707010906</li>
-                    <li>20240707010905</li>
+                    <li>20240707010912</li> -->
+                    <% for(let i = 0; i < 10; i++) {%>
+                        <li><%= game.period - i %></li>
+                    <% } %>
                 </ul>
             </div>
+
             <div class="num">
                 <div class="heading">Number</div>
                 <ul>
-                    <li class="fred">0</li>
-                    <li class="fred">8</li>
+                    <!-- <li class="fred">0</li>
                     <li class="fgreen">1</li>
-                    <li class="fred">2</li>
-                    <li class="fred">4</li>
-                    <li class="fred">4</li>
-                    <li class="fred">0</li>
-                    <li class="fgreen">5</li>
-                    <li class="fgreen">3</li>
-                    <li class="fred">0</li>
+                    <li class="fred">8</li> -->
+                    <% for(let i = 0; i < 10; i++) { %>
+                        <li class="f<%= game.history[i].color %>" ><%= game.history[i].number %></li>
+                    <% } %>
                 </ul>
             </div>
             <div class="bgsm">
                 <div class="heading">Big Small</div>
                 <ul>
+                    <!-- <li>Small</li>
                     <li>Small</li>
-                    <li>Small</li>
-                    <li>Small</li>
-                    <li>Big</li>
-                    <li>Small</li>
-                    <li>Big</li>
-                    <li>Small</li>
-                    <li>Small</li>
-                    <li>Big</li>
-                    <li>Small</li>
+                    <li>Small</li> -->
+                    <% for(let i = 0; i < 10; i++) { %>
+                        <li><%= game.history[i].size %></li>
+                    <% } %>
                 </ul>
             </div>
             <div class="col">
                 <div class="heading">Color</div>
                 <ul>
-                    <li>
+                    <!-- <li>
                         <div class="bggreen"></div>
                         <div class="circle bgviolet"></div>
                     </li>
@@ -192,29 +182,15 @@
                     </li>
                     <li>
                         <div class="bgred"></div>
-                    </li>
-                    <li>
-                        <div class="bggreen"></div>
-                    </li>
-                    <li>
-                        <div class="bggreen"></div>
-                    </li>
-                    <li>
-                        <div class="bgred"></div>
-                        <div class="circle bgviolet"></div>
-                    </li>
-                    <li>
-                        <div class="bggreen"></div>
-                    </li>
-                    <li>
-                        <div class="bggreen"></div>
-                    </li>
-                    <li>
-                        <div class="bgred"></div>
-                    </li>
-                    <li>
-                        <div class="bgred"></div>
-                    </li>
+                    </li> -->
+                    <% for(let i = 0; i < 10; i++) { %>
+                        <li>
+                            <div class="bg<%= game.history[i].color %>"></div>
+                            <% if(game.history[i].number == 0 || game.history[i].number == 5) { %>
+                                <div class="circle bgviolet"></div>
+                            <% } %>
+                        </li>
+                    <% } %>
                 </ul>
             </div>
         </div>

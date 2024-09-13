@@ -1,4 +1,4 @@
-const User = require("../db.js");
+const User = require("../db.js").user;
 
 async function addUser(req, res) {
     let {mobile , password, conform} = req.body;
