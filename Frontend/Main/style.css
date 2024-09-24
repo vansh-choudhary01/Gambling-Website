@@ -168,7 +168,11 @@ a {
     box-shadow: inset 1px -5px 10px rgba(208, 118, 118, 0.92);
 }
 
-.nav {
+.footer {
+    all : unset;
+    * {
+        all: unset;
+    }
     /* background-color :rgb(255, 187, 0); */
     display : flex;
     justify-content : space-between;
@@ -186,27 +190,27 @@ a {
     padding-top : 20px;
 }
 
-.nav .icon {
+.footer .icon {
     display : flex;
     flex-direction : column;
     align-items : center;
     justify-content : center;
 }
 
-.nav .icon {
+.footer .icon {
     width : 100%;
     height : 100%;
 }
 
-.nav img{
+.footer img{
     height : 50%;
 }
 
-.nav h5{
+.footer h5{
     opacity : .5;
 }
 
-.nav .hera {
+.footer .hera {
     background-color: rgb(255, 108, 108);
     position : absolute;
     bottom : 30px;
@@ -218,12 +222,12 @@ a {
     align-items : center;
 }
 
-.nav .pro h5{
+.footer .pro h5{
     position : relative;
     top : 13px;
 }
 
-.nav a {
+.footer a {
     width : 10px;
     color : inherit;
     text-decoration: none;

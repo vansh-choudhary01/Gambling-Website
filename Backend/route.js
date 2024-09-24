@@ -1,45 +1,23 @@
-const User = require("./db.js");
 const express = require("express");
-const app = express();
+const router = express.Router();
 
-const path = require("path");
-
-
-const addUser = require("./container/add.js");
-const checkUser = require("./container/login.js");
-const bigSmall = require("./container/bigSmall.js");
-const account = require("./container/account.js");
-const user = require("./container/user.js");
 const bet = require("./container/bet.js");
-// const apiData = require("./container/apiData.js");
+const { login, signUp, bigSmall, account, user, route, loginPage, signupPage, deposit, withdrow, activity } = require("./container/page.js");
 
-app.set("views", path.join(__dirname, "../Frontend"));
-app.set("view engine", "ejs");
-app.use(express.static(path.join(__dirname, "../Frontend")));
-app.use(express.urlencoded({extended : true}));
-app.use(express.json());
+router.get("/", route);
+router.get("/user/login", loginPage);
+router.get("/user/signUp", signupPage);
 
-app.get("/", (req, res) => {
-    res.redirect("/user/login");                                                        
-})
+// footer pages
+router.get("/user/account/:id", account);
+router.get("/user/deposit/:id", deposit);
+router.get("/user/withdrow/:id", withdrow);
+router.get("/user/activity/:id", activity);
 
-app.get("/user/login", (req, res) => {
-    let wrong = false;
-    res.render("LoginPage/index.ejs", {wrong});
-})
-
-app.get("/user/signUp", (req, res) => {
-    let wrong = false;
-    res.render("SignUpPage/index.ejs", {wrong});
-})
-
-// let data;
-app.get("/user/game", checkUser);
-app.post("/user/game", addUser);
-app.get("/user/colors/:id", bigSmall);
-app.get("/user/account/:id", account);
-app.get("/user/bet/:id", bet.bet);
-app.get("/user/:id", user);
-app.post("/api/data", bet.apiData);
-// console.log(data);
-module.exports = app;
+router.get("/user/game", login);
+router.post("/user/game", signUp);
+router.get("/user/colors/:id", bigSmall);
+router.get("/user/bet/:id", bet.bet);
+router.get("/user/:id", user);
+router.post("/api/data", bet.apiData);
+module.exports = router;
