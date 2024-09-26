@@ -21,11 +21,11 @@ async function apiData(req, res) {
 }
 
 async function bet(req, res) {
-    let {id} = req.params;
+    let {_id} = req.user;
     let {action, amount} = req.query;
     amount = parseFloat(amount); // Convert amount to a number
     
-    let user = await User.findById(id);
+    let user = await User.findById(_id);
     let game = await Game.findById('66e3229acbbc7a3b8f228fb5');
 
     if(user.balance < amount) {

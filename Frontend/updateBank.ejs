@@ -1,0 +1,32 @@
+<html lang="en"></html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Bank Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="/Account/style.css">
+</head>
+<body class="bg-gray-100">
+    <div class="max-w-md mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="bg-[#F36262] text-white text-center py-6">
+            <p class="text-2xl font-bold">Update Bank Details</p>
+        </div>
+        <div class="px-6 py-4">
+            <div class="mb-4">
+                <label for="bank-name" class="block text-gray-700 font-semibold mb-2">Bank Name</label>
+                <input type="text" id="bank-name" class="w-full border rounded px-3 py-2 outline-none" placeholder="Enter your bank name">
+            </div>
+            <div class="mb-4">
+                <label for="account-number" class="block text-gray-700 font-semibold mb-2">Account Number</label>
+                <input type="text" id="account-number" class="w-full border rounded px-3 py-2 outline-none" placeholder="Enter your account number">
+            </div>
+            <div class="mb-4">
+                <label for="ifsc-code" class="block text-gray-700 font-semibold mb-2">IFSC Code</label>
+                <input type="text" id="ifsc-code" class="w-full border rounded px-3 py-2 outline-none" placeholder="Enter your IFSC code">
+            </div>
+            <button class="bg-[#F36262] text-white w-full py-2 rounded">Update Details</button>
+        </div>
+    </div>
+    <div style="height: 200px; background-color: white;"></div>
+    <%- include('./includes/index.ejs') %>

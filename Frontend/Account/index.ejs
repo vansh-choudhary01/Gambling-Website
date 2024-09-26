@@ -40,7 +40,7 @@
                 </div>
                 <div class="flex justify-around mt-4">
                     <div class="text-center">
-                        <a href="/user/withdrow/<%= user._id %>" class="icon">
+                        <a href="/user/withdrow" class="icon">
                             <div class="w-12 h-12 bg-red-200 rounded-full flex items-center justify-center">
                                 <i class="fas fa-wallet text-red-500"></i>
                             </div>
@@ -48,7 +48,7 @@
                         <div class="mt-2 text-sm">Wallet</div>
                     </div>
                     <div class="text-center">
-                        <a href="/user/deposit/<%= user._id %>" class="icon">
+                        <a href="/user/deposit" class="icon">
                             <div class="w-12 h-12 bg-yellow-200 rounded-full flex items-center justify-center">
                                 <i class="fas fa-piggy-bank text-yellow-500"></i>
                             </div>
@@ -56,7 +56,7 @@
                         <div class="mt-2 text-sm">Deposit</div>
                     </div>
                     <div class="text-center">
-                        <a href="/user/withdrow/<%= user._id %>" class="icon">
+                        <a href="/user/withdrow" class="icon">
                             <div class="w-12 h-12 bg-blue-200 rounded-full flex items-center justify-center">
                                 <i class="fas fa-credit-card text-blue-500"></i>
                             </div>
@@ -101,7 +101,7 @@
                     <div class="mt-2 text-sm font-bold">Transaction</div>
                     <div class="text-xs text-gray-500">My transaction history</div>
                 </div>
-                <a href="/user/deposit/<%= user._id %> " class="icon">
+                <a href="/user/deposit " class="icon">
                     <div class="bg-white p-4 rounded-lg shadow-md text-center">
                         <div class="w-12 h-12 bg-red-200 rounded-full flex items-center justify-center mx-auto">
                             <i class="fas fa-piggy-bank text-red-500"></i>
@@ -109,7 +109,7 @@
                         <div class="mt-2 text-sm font-bold">Deposit</div>
                     </div>
                 </a>
-                <a href="/user/withdrow/<%= user._id %> " class="icon">
+                <a href="/user/withdrow " class="icon">
                     <div class="bg-white p-4 rounded-lg shadow-md text-center">
                         <div class="w-12 h-12 bg-blue-200 rounded-full flex items-center justify-center mx-auto">
                             <i class="fas fa-credit-card text-blue-500"></i>
@@ -175,14 +175,16 @@
             </div>
 
             <div class="bg-white rounded-lg shadow-md p-4 mb-4 text-center">
-                <button
-                    class="w-full py-2 border border-red-400 text-red-400 rounded-full flex items-center justify-center">
-                    <i class="fas fa-power-off mr-2"></i>
-                    <span>Log out</span>
-                </button>
+                <form method="get
+                    <button
+                        class="w-full py-2 border border-red-400 text-red-400 rounded-full flex items-center justify-center">
+                        <i class="fas fa-power-off mr-2"></i>
+                        <span>Log out</span>
+                    </button>
+                </form>
             </div>
 
             <div style="height : 100px"></div>
         </div>
         <!-- <div class="your-tailwind-classes" style="all: unset;"> -->
-            <%- include('../includes/index.ejs') %>
+        <%- include('../includes/index.ejs') %>

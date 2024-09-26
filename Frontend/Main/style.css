@@ -172,7 +172,7 @@ a {
     all : unset;
     * {
         all: unset;
-    }
+    };
     /* background-color :rgb(255, 187, 0); */
     display : flex;
     justify-content : space-between;
@@ -208,6 +208,7 @@ a {
 
 .footer h5{
     opacity : .5;
+    font-size: 13px;
 }
 
 .footer .hera {

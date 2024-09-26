@@ -38,7 +38,7 @@
             </div>
         </div>
 
-        <form method="get" action="/user/game" id="login">
+        <form method="post" action="/login" id="login">
             <div class="info">
                 <div>
                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACHElEQVR4nO2Zv0tjQRDHF0RRu2vcedG7QovDWIrKFe4mBD0bCagBf+xg5x8g2lxsVdBSba4QbK67yr9BDrzTf0HUkyxqLyKysvvu4lMSMC95S1b2C8MkkMzOZ2c2L+8NIV5eXjE02ArAihT4CQV+DwFXcYwCv9cxugL2TcckNpROp9sgYL/iJl3VgB9ZgQDgaw1PPggtrETCosBPn3eNLde3a4OtAHyl3FIB+0OSVrTndTs1piV5+UyQpBUteTPHrHmxq6WlTom4KxFvJKKqxSASs4R4cD4//4HYBpBC7NWauKwAoN+XhPiZJMDjv8UeXwDE2HlZDQDx4aJQ6EgIgB2Gi7HDVwCqUQASUd3MzqYSASCk0EJpdkB7RwEqywMElioQBJmvAOyH9k5WgAK7Da+a7NZJAKh2HfAA3FfgTfIthP4Q1yffQvgOW6gnlTHxtHcSoPhlUn3qzhjvJICsYB6gmnwF8B220P7YlJroHzfeSYC+j1kTT/umATiemVNDfTlj+rVzNzRbLF/+3DbLuwdwPDOnhntzaqQ3p35PO1gB2bw39bzi4/W4yf8Vopy8lf9C0QEHpXz1P0Tc5DcjZyX7ecxCCwErJjVi2hjN23i0aMZCR41OfqJ/XF0uCBsAIYQeyNU7Zu1JZUzbrI/mXyQvhbg7W1xsJzYlEXfq+SWSESsJ8Z3Ylh5IGAghrmMnL8x3d/S4yjqAF4mnJytS+Vgs98MvAAAAAElFTkSuQmCC"> 
@@ -48,7 +48,7 @@
                     <select name="" id="num">
                         <option value="India">+91</option>
                     </select>
-                    <input type="number" name="mobile" placeholder="Please enter the phone number" required>
+                    <input type="number" name="username" placeholder="Please enter the phone number" required>
                 </span>
             </div>
             <% if(wrong) { %>
@@ -72,7 +72,7 @@
                 <button type="submit" id="RegisterBtn" form="register">Register</button>
             </div>
         </form>
-        <form method="get" action="/user/signUp" id="register"></form>
+        <form method="get" action="/signUp" id="register"></form>
     </main>
     <footer>
         <div class="help">

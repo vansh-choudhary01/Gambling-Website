@@ -25,7 +25,7 @@
         </div>
         <div class="userscreen">
             <div class="wallet">
-                <div class="balance">&#8377;<%= user.balance %>.58 <a href=""><img
+                <div class="balance">&#8377;<%= user.balance %>.40 <a href=""><img
                                 src="/Big Small/img/refireshIcon-2bc1b49f.png" alt=""></a></div>
                 <div class="balanceinfo">
                     <img src="/Big Small/img/wallet-3f0340b6.png" alt="">
@@ -126,7 +126,7 @@
                 <input form="bet" type="number" placeholder="BET" name="amount" required>
                 <button form="bet" class="big" name="action" value="big">Big</button>
                 <button form="bet" class="small" name="action" value="small">Small</button>
-                <form id="bet" method="get" action="/user/bet/<%= user._id %>"></form>
+                <form id="bet" method="get" action="/user/bet"></form>
             </div>
         </div>
 

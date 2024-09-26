@@ -38,7 +38,7 @@
                 </div>
             </div>
 
-            <form method="post" action="/user/game">
+            <form method="post" action="/signUp">
                 <div class="info">
                     <div>
                         <img
@@ -49,7 +49,7 @@
                         <select name="" id="num">
                             <option value="India">+91</option>
                         </select>
-                        <input type="number" name="mobile" placeholder="Please enter the phone number" required>
+                        <input type="number" name="username" placeholder="Please enter the phone number" required>
                     </span>
                 </div>
                 <% if(wrong) { %>
@@ -80,7 +80,7 @@
                             <button id="logInBtn" form="login">Log in</button>
                         </div>
             </form>
-            <form action="/user/login" id="login"></form>
+            <form action="/login" id="login"></form>
         </main>
     </div>
 </body>
