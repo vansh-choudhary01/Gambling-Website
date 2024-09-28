@@ -22,14 +22,14 @@
             <!-- <img src="https://ossimg.envyenvelope.com/daman/other/h5setting_202404231948388e2u.png" alt="logo"
                 id="logo"> -->
             <div class="flex items-center">
-                <i class="fas fa-dice-d20 text-red-600 text-4xl"></i>
+                <i class="fas fa-dice-d20 text-white text-4xl"></i>
 
             </div>
         </div>
         <header>
-            <p>Please SignUp with your phone number or email</p>
+            <p>Please SignUp with your phone number and email</p>
         </header>
-        <main>
+        <main style="position: inherit;">
             <div class="icons">
                 <div class="box">
                     <img
@@ -38,8 +38,23 @@
                 </div>
             </div>
 
-            <form method="post" action="/signUp">
+            <form method="post" action="/signUp" id="signUp">
                 <div class="info">
+                    <div>
+                        <i class="fa-solid fa-envelope" style="color: #FB6D6A; font-size: 20px;"></i>
+                        &nbsp;
+                        <p>Email</p>
+                    </div>
+                    <span>
+                        <select name="" id="num">
+                            <option value="India">Email</option>
+                        </select>
+                        <input type="text" class="input" name="email" placeholder="Please enter the email address"
+                            required>
+                    </span>
+                    <% if(wrong) { %>
+                        <p style="color : rgb(210, 45, 0); margin-left : 20px; margin-top : 20px;">Email or number already exists. <br>Please use a different email or number.</p>
+                    <% } %>
                     <div>
                         <img
                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACHElEQVR4nO2Zv0tjQRDHF0RRu2vcedG7QovDWIrKFe4mBD0bCagBf+xg5x8g2lxsVdBSba4QbK67yr9BDrzTf0HUkyxqLyKysvvu4lMSMC95S1b2C8MkkMzOZ2c2L+8NIV5eXjE02ArAihT4CQV+DwFXcYwCv9cxugL2TcckNpROp9sgYL/iJl3VgB9ZgQDgaw1PPggtrETCosBPn3eNLde3a4OtAHyl3FIB+0OSVrTndTs1piV5+UyQpBUteTPHrHmxq6WlTom4KxFvJKKqxSASs4R4cD4//4HYBpBC7NWauKwAoN+XhPiZJMDjv8UeXwDE2HlZDQDx4aJQ6EgIgB2Gi7HDVwCqUQASUd3MzqYSASCk0EJpdkB7RwEqywMElioQBJmvAOyH9k5WgAK7Da+a7NZJAKh2HfAA3FfgTfIthP4Q1yffQvgOW6gnlTHxtHcSoPhlUn3qzhjvJICsYB6gmnwF8B220P7YlJroHzfeSYC+j1kTT/umATiemVNDfTlj+rVzNzRbLF/+3DbLuwdwPDOnhntzaqQ3p35PO1gB2bw39bzi4/W4yf8Vopy8lf9C0QEHpXz1P0Tc5DcjZyX7ecxCCwErJjVi2hjN23i0aMZCR41OfqJ/XF0uCBsAIYQeyNU7Zu1JZUzbrI/mXyQvhbg7W1xsJzYlEXfq+SWSESsJ8Z3Ylh5IGAghrmMnL8x3d/S4yjqAF4mnJytS+Vgs98MvAAAAAElFTkSuQmCC">
@@ -49,40 +64,69 @@
                         <select name="" id="num">
                             <option value="India">+91</option>
                         </select>
-                        <input type="number" name="username" placeholder="Please enter the phone number" required>
+                        <input type="number" class="input" name="username" placeholder="Please enter the phone number"
+                            minlength="10" maxlength="10" required>
                     </span>
                 </div>
-                <% if(wrong) { %>
-                    <p style="color : rgb(210, 45, 0); margin-left : 20px; margin-top : 20px;">password is not same or
-                        account is already present</p>
-                    <% } %>
-                        <div class="info">
-                            <div>
-                                <img
-                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACbklEQVR4nO1YUU7bQBD1V3/gJkWi/Wl7B6i8JEokOEPyB1ygqJ8VNLaCIkSkgLwjn6HAIdreoBdoY29I1M1UY69TCjixk028UT3SSJEznnlv5816bcvSYAiwhQCnCPANAQIEwBQPVAzFbumovRhw33+BnLsIIKeAft45/40ALcpRHHiAGwXmHgHO0PPeYq+3kXpPr7cRxRBwzoeKzJdCSKiVJ/A/EGA79/2+/0rdSzk+LwflNM2TBOKV3547j+e9jjpBuTzvpV6U0wrHQ0jtP9OQy1G5PulBl6Uo59+jor7/ZuFcAO+UjL7qQZelKOd9RWBz4Vy+v6kI/NKDLktRtRWamm+mlQQeGZYdyGmlhFYlodC234eM3YWMBYIxTDwp+PDaIo7P5KOaIWO3AWO784L/mFZQOg7KVksbATkjX2jbJ7lXXhc4XR7k6QTJpmjA4mkXbvJ0oG8cAcayHzWKBitSvCQgyg6wNZBQtYqjoyOUrot4fR05/aZrolIxm8Dg4ADl+XnqpxTZbkcxZhKoVifgx5eXOGw2UdRqkQ8bDRx3OhMS83bCWiYBkkgCflCvP+1OvY7jbjeKGR0emkdAkuYB4pVPiaH/oi64rnkEkAaWTpQkm7S4Wi2eh6ur9SQwMJmATCTUaMyWkOOYR2B0fBwPcaeTPsQXF/EQ0zPByG203Y5JdLv/bqPN5gS8sduoSB5kikTqg2x/f67cYmVHiUolPko4zt+jhOOsx1FCLNmt/4ZAaOYr5c/sBBi7XeuX+oCx3aIBi0ce7O3tZCagZHRi0Op/yAX+YSeodUXMRGjbfaqde+VLK6200qxV2h8chQSTOMeJTwAAAABJRU5ErkJggg==">
-                                <!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB2ElEQVR4nO1YPU8CQRDdmFjpP8BSbY0W6q/Qhv9weyC/gY4ZQiGoiVBLoxcaKyz9ATY0Euqjk0TAYpeCMXuigePDM3fccbIveQk5dpL3Zt4s4RjT0NAIDFSpbArEpACoSsRXAfAhEPujz1X1nTrDVhEC4FwCtCQiLSRAS51lqwLKZjckIvwqfIwCYCgBcqo2av3sr+Jd08hFKl5FwenmZHeFRLwa5HInVChsKQ4QTyXAtUCU7kmIfP4sEvFqGWdk3pYAB/NqJMChBGi7d4KiWGx1o0x1foH4b8h8/mhqEohJFjZGV+V4J0teayXijcvA3XLVzhIB0BwXMUA89lrr7MSk+SYLG6MfqB8RlM1ue61VZ10T6LOw4b4Sw673DW0A9QS8gzKZHeLcItPskWnSktkjzmtkGHvBiTfNTgjCycUOGUbCv4GvzlNEvPdvIJzY0By+B2GAoiTTBkw9AdIR8oO1jNDwIk12pUSNuuXQLhedZ7ExYJeL9PL8OEH1LDYGGnVrykDjyYq5gfpDvCPUvr2M2RKXi/FdYgqQTBsw9QRIR2i9I8R5N95/KTmvRWaAc8u/gXR6nzh/i8BAh1KpXd8GHBOGkVCvOEKJE+dd51VOUOI1NP45PgG/zeQP+6/tsQAAAABJRU5ErkJggg=="> -->
-                                <p>Password</p>
-                            </div>
-                            <input type="password" name="password" placeholder="    Password" id="pass" required>
-                        </div>
-                        <div class="info">
-                            <div>
-                                <img
-                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACbklEQVR4nO1YUU7bQBD1V3/gJkWi/Wl7B6i8JEokOEPyB1ygqJ8VNLaCIkSkgLwjn6HAIdreoBdoY29I1M1UY69TCjixk028UT3SSJEznnlv5816bcvSYAiwhQCnCPANAQIEwBQPVAzFbumovRhw33+BnLsIIKeAft45/40ALcpRHHiAGwXmHgHO0PPeYq+3kXpPr7cRxRBwzoeKzJdCSKiVJ/A/EGA79/2+/0rdSzk+LwflNM2TBOKV3547j+e9jjpBuTzvpV6U0wrHQ0jtP9OQy1G5PulBl6Uo59+jor7/ZuFcAO+UjL7qQZelKOd9RWBz4Vy+v6kI/NKDLktRtRWamm+mlQQeGZYdyGmlhFYlodC234eM3YWMBYIxTDwp+PDaIo7P5KOaIWO3AWO784L/mFZQOg7KVksbATkjX2jbJ7lXXhc4XR7k6QTJpmjA4mkXbvJ0oG8cAcayHzWKBitSvCQgyg6wNZBQtYqjoyOUrot4fR05/aZrolIxm8Dg4ADl+XnqpxTZbkcxZhKoVifgx5eXOGw2UdRqkQ8bDRx3OhMS83bCWiYBkkgCflCvP+1OvY7jbjeKGR0emkdAkuYB4pVPiaH/oi64rnkEkAaWTpQkm7S4Wi2eh6ur9SQwMJmATCTUaMyWkOOYR2B0fBwPcaeTPsQXF/EQ0zPByG203Y5JdLv/bqPN5gS8sduoSB5kikTqg2x/f67cYmVHiUolPko4zt+jhOOsx1FCLNmt/4ZAaOYr5c/sBBi7XeuX+oCx3aIBi0ce7O3tZCagZHRi0Op/yAX+YSeodUXMRGjbfaqde+VLK6200qxV2h8chQSTOMeJTwAAAABJRU5ErkJggg==">
-                                <!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB2ElEQVR4nO1YPU8CQRDdmFjpP8BSbY0W6q/Qhv9weyC/gY4ZQiGoiVBLoxcaKyz9ATY0Euqjk0TAYpeCMXuigePDM3fccbIveQk5dpL3Zt4s4RjT0NAIDFSpbArEpACoSsRXAfAhEPujz1X1nTrDVhEC4FwCtCQiLSRAS51lqwLKZjckIvwqfIwCYCgBcqo2av3sr+Jd08hFKl5FwenmZHeFRLwa5HInVChsKQ4QTyXAtUCU7kmIfP4sEvFqGWdk3pYAB/NqJMChBGi7d4KiWGx1o0x1foH4b8h8/mhqEohJFjZGV+V4J0teayXijcvA3XLVzhIB0BwXMUA89lrr7MSk+SYLG6MfqB8RlM1ue61VZ10T6LOw4b4Sw673DW0A9QS8gzKZHeLcItPskWnSktkjzmtkGHvBiTfNTgjCycUOGUbCv4GvzlNEvPdvIJzY0By+B2GAoiTTBkw9AdIR8oO1jNDwIk12pUSNuuXQLhedZ7ExYJeL9PL8OEH1LDYGGnVrykDjyYq5gfpDvCPUvr2M2RKXi/FdYgqQTBsw9QRIR2i9I8R5N95/KTmvRWaAc8u/gXR6nzh/i8BAh1KpXd8GHBOGkVCvOEKJE+dd51VOUOI1NP45PgG/zeQP+6/tsQAAAABJRU5ErkJggg=="> -->
-                                <p>Conform Password</p>
-                            </div>
-                            <input type="password" name="conform" placeholder="    Password" id="pass" required>
-                        </div>
 
-                        <div class="btn">
-                            <button id="RegisterBtn">Register</button>
-                            <button id="logInBtn" form="login">Log in</button>
+                <div class="info">
+                    <div>
+                        <img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACbklEQVR4nO1YUU7bQBD1V3/gJkWi/Wl7B6i8JEokOEPyB1ygqJ8VNLaCIkSkgLwjn6HAIdreoBdoY29I1M1UY69TCjixk028UT3SSJEznnlv5816bcvSYAiwhQCnCPANAQIEwBQPVAzFbumovRhw33+BnLsIIKeAft45/40ALcpRHHiAGwXmHgHO0PPeYq+3kXpPr7cRxRBwzoeKzJdCSKiVJ/A/EGA79/2+/0rdSzk+LwflNM2TBOKV3547j+e9jjpBuTzvpV6U0wrHQ0jtP9OQy1G5PulBl6Uo59+jor7/ZuFcAO+UjL7qQZelKOd9RWBz4Vy+v6kI/NKDLktRtRWamm+mlQQeGZYdyGmlhFYlodC234eM3YWMBYIxTDwp+PDaIo7P5KOaIWO3AWO784L/mFZQOg7KVksbATkjX2jbJ7lXXhc4XR7k6QTJpmjA4mkXbvJ0oG8cAcayHzWKBitSvCQgyg6wNZBQtYqjoyOUrot4fR05/aZrolIxm8Dg4ADl+XnqpxTZbkcxZhKoVifgx5eXOGw2UdRqkQ8bDRx3OhMS83bCWiYBkkgCflCvP+1OvY7jbjeKGR0emkdAkuYB4pVPiaH/oi64rnkEkAaWTpQkm7S4Wi2eh6ur9SQwMJmATCTUaMyWkOOYR2B0fBwPcaeTPsQXF/EQ0zPByG203Y5JdLv/bqPN5gS8sduoSB5kikTqg2x/f67cYmVHiUolPko4zt+jhOOsx1FCLNmt/4ZAaOYr5c/sBBi7XeuX+oCx3aIBi0ce7O3tZCagZHRi0Op/yAX+YSeodUXMRGjbfaqde+VLK6200qxV2h8chQSTOMeJTwAAAABJRU5ErkJggg==">
+                        <!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB2ElEQVR4nO1YPU8CQRDdmFjpP8BSbY0W6q/Qhv9weyC/gY4ZQiGoiVBLoxcaKyz9ATY0Euqjk0TAYpeCMXuigePDM3fccbIveQk5dpL3Zt4s4RjT0NAIDFSpbArEpACoSsRXAfAhEPujz1X1nTrDVhEC4FwCtCQiLSRAS51lqwLKZjckIvwqfIwCYCgBcqo2av3sr+Jd08hFKl5FwenmZHeFRLwa5HInVChsKQ4QTyXAtUCU7kmIfP4sEvFqGWdk3pYAB/NqJMChBGi7d4KiWGx1o0x1foH4b8h8/mhqEohJFjZGV+V4J0teayXijcvA3XLVzhIB0BwXMUA89lrr7MSk+SYLG6MfqB8RlM1ue61VZ10T6LOw4b4Sw673DW0A9QS8gzKZHeLcItPskWnSktkjzmtkGHvBiTfNTgjCycUOGUbCv4GvzlNEvPdvIJzY0By+B2GAoiTTBkw9AdIR8oO1jNDwIk12pUSNuuXQLhedZ7ExYJeL9PL8OEH1LDYGGnVrykDjyYq5gfpDvCPUvr2M2RKXi/FdYgqQTBsw9QRIR2i9I8R5N95/KTmvRWaAc8u/gXR6nzh/i8BAh1KpXd8GHBOGkVCvOEKJE+dd51VOUOI1NP45PgG/zeQP+6/tsQAAAABJRU5ErkJggg=="> -->
+                        <p>Password</p>
+                    </div>
+                    <input type="password" class="input" name="password" placeholder="    Password" id="pass" required>
+                </div>
+                <div class="info">
+                    <div>
+                        <img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACbklEQVR4nO1YUU7bQBD1V3/gJkWi/Wl7B6i8JEokOEPyB1ygqJ8VNLaCIkSkgLwjn6HAIdreoBdoY29I1M1UY69TCjixk028UT3SSJEznnlv5816bcvSYAiwhQCnCPANAQIEwBQPVAzFbumovRhw33+BnLsIIKeAft45/40ALcpRHHiAGwXmHgHO0PPeYq+3kXpPr7cRxRBwzoeKzJdCSKiVJ/A/EGA79/2+/0rdSzk+LwflNM2TBOKV3547j+e9jjpBuTzvpV6U0wrHQ0jtP9OQy1G5PulBl6Uo59+jor7/ZuFcAO+UjL7qQZelKOd9RWBz4Vy+v6kI/NKDLktRtRWamm+mlQQeGZYdyGmlhFYlodC234eM3YWMBYIxTDwp+PDaIo7P5KOaIWO3AWO784L/mFZQOg7KVksbATkjX2jbJ7lXXhc4XR7k6QTJpmjA4mkXbvJ0oG8cAcayHzWKBitSvCQgyg6wNZBQtYqjoyOUrot4fR05/aZrolIxm8Dg4ADl+XnqpxTZbkcxZhKoVifgx5eXOGw2UdRqkQ8bDRx3OhMS83bCWiYBkkgCflCvP+1OvY7jbjeKGR0emkdAkuYB4pVPiaH/oi64rnkEkAaWTpQkm7S4Wi2eh6ur9SQwMJmATCTUaMyWkOOYR2B0fBwPcaeTPsQXF/EQ0zPByG203Y5JdLv/bqPN5gS8sduoSB5kikTqg2x/f67cYmVHiUolPko4zt+jhOOsx1FCLNmt/4ZAaOYr5c/sBBi7XeuX+oCx3aIBi0ce7O3tZCagZHRi0Op/yAX+YSeodUXMRGjbfaqde+VLK6200qxV2h8chQSTOMeJTwAAAABJRU5ErkJggg==">
+                        <!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB2ElEQVR4nO1YPU8CQRDdmFjpP8BSbY0W6q/Qhv9weyC/gY4ZQiGoiVBLoxcaKyz9ATY0Euqjk0TAYpeCMXuigePDM3fccbIveQk5dpL3Zt4s4RjT0NAIDFSpbArEpACoSsRXAfAhEPujz1X1nTrDVhEC4FwCtCQiLSRAS51lqwLKZjckIvwqfIwCYCgBcqo2av3sr+Jd08hFKl5FwenmZHeFRLwa5HInVChsKQ4QTyXAtUCU7kmIfP4sEvFqGWdk3pYAB/NqJMChBGi7d4KiWGx1o0x1foH4b8h8/mhqEohJFjZGV+V4J0teayXijcvA3XLVzhIB0BwXMUA89lrr7MSk+SYLG6MfqB8RlM1ue61VZ10T6LOw4b4Sw673DW0A9QS8gzKZHeLcItPskWnSktkjzmtkGHvBiTfNTgjCycUOGUbCv4GvzlNEvPdvIJzY0By+B2GAoiTTBkw9AdIR8oO1jNDwIk12pUSNuuXQLhedZ7ExYJeL9PL8OEH1LDYGGnVrykDjyYq5gfpDvCPUvr2M2RKXi/FdYgqQTBsw9QRIR2i9I8R5N95/KTmvRWaAc8u/gXR6nzh/i8BAh1KpXd8GHBOGkVCvOEKJE+dd51VOUOI1NP45PgG/zeQP+6/tsQAAAABJRU5ErkJggg=="> -->
+                        <p>Conform Password</p>
+                    </div>
+                    <input type="password" class="input" name="conform" placeholder="    Password" id="pass" required>
+                </div>
+
+                <div class="btn">
+                    <button id="RegisterBtn" form="local">Register</button>
+                    <button id="logInBtn" form="login">Log in</button>
+                </div>
+
+                <div class="otp flex items-center justify-center min-h-screen"
+                    style="background-color: rgba(0, 0, 0, 0.155); position: absolute; top : 0; width: 390px; height: 138vh; display: none;">
+                    <div class="bg-white shadow-md rounded-lg p-6 w-80">
+                        <div class="flex items-center mb-4">
+                            <i class="back fas fa-arrow-left text-gray-600"></i>
                         </div>
+                        <div class="flex justify-center mb-4">
+                            <i class="fas fa-mobile-alt text-[#FB6D6A] text-6xl"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-center mb-2">OTP Verification</h2>
+                        <p class="text-center text-gray-700 mb-4">Hello Gamer,</p>
+                        <p class="text-center text-gray-700 mb-6">Thank you for registering with you. Please
+                            type the OTP as shared on your gmail XXXXXXX@gmail.com</p>
+                        <div class="flex justify-between mb-4">
+                            <input class="w-12 h-12 border border-gray-300 rounded-lg text-center text-xl otpcode"
+                                min='0' max='9' step="1" type="number" oninput="restrictToOneDigit(this)" />
+                            <input class="w-12 h-12 border border-gray-300 rounded-lg text-center text-xl otpcode"
+                                min='0' max='9' step="1" type="number" oninput="restrictToOneDigit(this)" />
+                            <input class="w-12 h-12 border border-gray-300 rounded-lg text-center text-xl otpcode"
+                                min='0' max='9' step="1" type="number" oninput="restrictToOneDigit(this)" />
+                            <input class="w-12 h-12 border border-gray-300 rounded-lg text-center text-xl otpcode"
+                                min='0' max='9' step="1" type="number" oninput="restrictToOneDigit(this)" />
+                        </div>
+                        <p class="text-center text-gray-700 mb-4">OTP not received? <a
+                                class="text-[#FB6D6A] font-bold resend" href="#">RESEND</a></p>
+                        <button form="signUp" type="submit"
+                            class=" w-full bg-[#FB6D6A] text-white py-2 rounded-lg font-bold">Submit</button>
+                    </div>
+                </div>
             </form>
             <form action="/login" id="login"></form>
         </main>
     </div>
+    <script src="/SignUpPage/script.js"></script>
 </body>
 
 </html>

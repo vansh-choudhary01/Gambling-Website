@@ -6,6 +6,7 @@ const ejsMate = require("ejs-mate");
 const session = require("express-session");
 const passport = require('passport')
 const LocalStrategy = require("passport-local");
+require('dotenv').config(); 
 
 const {user : User} = require("./db.js");
 
@@ -14,8 +15,8 @@ const sessionOptions = ({
     resave : false,
     saveUninitialized : true,
     cookie : {
-        expires : Date.now() + 7 * 24 * 60 * 60 * 1000,
-        maxAge : 7 * 24 * 60 * 60 * 1000,
+        expires : Date.now() + 24 * 60 * 60 * 1000,
+        maxAge : 24 * 60 * 60 * 1000,
         httpOnly : true
     }
 })
@@ -37,4 +38,6 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use("/", route);
 
-app.listen(8080);
+const server = app.listen(8080, () => {
+    console.log('server is listening on post 8080');
+});

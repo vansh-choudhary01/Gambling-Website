@@ -17,9 +17,22 @@ const userSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  email : {
+    type: String,
+    required : true,
+    unique: true,  // Ensure that the email is unique
+    trim: true,    // Optional: removes whitespace from both ends
+    lowercase: true // Optional: ensures that the email is stored in lowercase
+  },
+  username: {
+    type: String,
+    required: true,
+    unique: true,  // Ensure that the username is unique
+    trim: true
+  }
 });
 
-userSchema.plugin(passportLocalMongoose);
+userSchema.plugin(passportLocalMongoose, {usernameField: 'username'});
 const User = new mongoose.model("User", userSchema);
 
 const gameSchema = new mongoose.Schema({
