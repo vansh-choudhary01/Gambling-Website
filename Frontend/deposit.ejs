@@ -1,19 +1,21 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deposit Page</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com/3.3.2"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="/Account/style.css">
+    <link rel="icon" href="/icon.png">
 </head>
 
 <body>
-    <div class="max-w-md mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+    <div class="max-w-md mx-auto bg-white shadow-md overflow-hidden">
         <div class="p-4 bg-red-500 text-white flex justify-between items-center">
             <div>
                 <p class="text-sm">Balance</p>
-                <p class="text-2xl font-bold">₹<%= user.balance %> .40</p>
+                <p class="text-2xl font-bold">₹<%= user.balance %>.40</p>
             </div>
             <div class="flex space-x-2">
                 <i class="fas fa-wallet"></i>
@@ -23,8 +25,8 @@
         </div>
         <div class="p-4 grid grid-cols-3 gap-4">
             <div class="flex flex-col items-center">
-                <div class="bg-red-500 p-4 rounded-full">
-                    <i class="fas fa-mobile-alt text-white"></i>
+                <div class="bg-gray-200 p-4 rounded-full">
+                    <i class="fas fa-mobile-alt text-gray-500"></i>
                 </div>
                 <p class="text-sm mt-2">Local UPI</p>
             </div>
@@ -35,8 +37,8 @@
                 <p class="text-sm mt-2">E-Wallet</p>
             </div>
             <div class="flex flex-col items-center">
-                <div class="bg-gray-200 p-4 rounded-full">
-                    <i class="fas fa-qrcode text-gray-500"></i>
+                <div class="bg-red-500 p-4 rounded-full">
+                    <i class="fas fa-qrcode text-white"></i>
                 </div>
                 <p class="text-sm mt-2">UPI x QR</p>
             </div>
@@ -68,7 +70,7 @@
         <div class="p-4 bg-white">
             <p class="text-gray-700 font-bold">Select channel</p>
             <div class="bg-red-100 p-2 rounded-lg mt-2">
-                <p class="text-red-500">Local UPI</p>
+                <p class="text-red-500">UPI x QR</p>
                 <p class="text-xs text-gray-500">Balance: 500 - 100K</p>
                 <p class="text-xs text-gray-500">2% bonus</p>
             </div>
@@ -83,32 +85,54 @@
                 <button class="bg-gray-100 p-2 rounded-lg">₹ 50K</button>
                 <button class="bg-gray-100 p-2 rounded-lg">₹ 100K</button>
             </div>
-            <div class="mt-4">
-                <input type="text" class="w-full p-2 border rounded-lg" placeholder="Please enter the amount">
-            </div>
-            <button class="w-full bg-gray-300 p-2 rounded-lg mt-4">Deposit</button>
+            <form method="get" action="/qrpayment">
+                <div class="mt-4">
+                    <input type="text" class="w-full p-2 border rounded-lg" placeholder="Please enter the amount"
+                        value="500" name="amount">
+                </div>
+                <button class="w-full bg-gray-300 p-2 rounded-lg mt-4">Deposit</button>
+            </form>
         </div>
         <div class="p-4 bg-white">
             <p class="text-gray-700 font-bold">Recharge instructions</p>
             <div class="bg-gray-100 p-2 rounded-lg mt-2">
-                <p class="text-xs text-gray-500">• After completing the UPI transaction, please fill in Ref NO./utr if you do not fill in UTR the loss of customer, our company will not responsible. please be sure to fill it back!</p>
-                <p class="text-xs text-gray-500 mt-2">• If you are wrong when you create an order, the loss of customer , our company will not responsible !</p>
+                <p class="text-xs text-gray-500">• After completing the UPI transaction, please fill in Ref NO./utr if
+                    you do not fill in UTR the loss of customer, our company will not responsible. please be sure to
+                    fill it back!</p>
+                <p class="text-xs text-gray-500 mt-2">• If you are wrong when you create an order, the loss of customer
+                    , our company will not responsible !</p>
             </div>
         </div>
+        <% if(user.email === "coloro093@gmail.com") {%>
         <div class="bg-white p-4 rounded-lg shadow-md">
             <p class="text-sm font-bold mb-2">Deposit history</p>
-            <div class="flex justify-between items-center mb-2">
-                <span class="bg-green-500 text-white text-xs px-2 py-1 rounded-lg">Deposit</span>
-                <span class="bg-red-500 text-white text-xs px-2 py-1 rounded-lg">Failed</span>
+            <div class="bg-gray-100 p-2 rounded-lg mb-2">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="bg-green-500 text-white text-xs px-2 py-1 rounded-lg">Deposit</span>
+                    <span class="bg-green-500 text-white text-xs px-2 py-1 rounded-lg">Success</span>
+                </div>
+                <div class="text-xs text-gray-500">
+                    <p>Balance: ₹500.00</p>
+                    <p>Type: Local UPI</p>
+                    <p>Time: 2024-09-04 22:25:10</p>
+                    <p>Order number: RC2024090459560845953884</p>
+                </div>
             </div>
-            <div class="text-xs text-gray-500">
-                <p>Balance: ₹500.00</p>
-                <p>Type: Local UPI</p>
-                <p>Time: 2024-09-04 22:19:57</p>
-                <p>Order number: RC2024090422195784961864</p>
+            <div class="bg-gray-100 p-2 rounded-lg mb-2">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="bg-green-500 text-white text-xs px-2 py-1 rounded-lg">Deposit</span>
+                    <span class="bg-red-500 text-white text-xs px-2 py-1 rounded-lg">Failed</span>
+                </div>
+                <div class="text-xs text-gray-500">
+                    <p>Balance: ₹500.00</p>
+                    <p>Type: Local UPI</p>
+                    <p>Time: 2024-09-04 22:19:57</p>
+                    <p>Order number: RC2024090422195784961864</p>
+                </div>
             </div>
         </div>
+        <% } %>
     </div>
     <div style="height: 100px; background-color: white;"></div>
 
-<%- include('./includes/index.ejs') %>
+    <%- include('./includes/index.ejs') %>

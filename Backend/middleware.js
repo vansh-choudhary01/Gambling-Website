@@ -4,3 +4,10 @@ module.exports.isLoggedIn = (req, res, next) => {
     }
     next();
 }
+
+module.exports.isAdmin = (req, res, next) => {
+    if(req.user.email == process.env.ADMIN_EMAIL) {
+        return next();
+    }
+    next("Access Denied");
+}

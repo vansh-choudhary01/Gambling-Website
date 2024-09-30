@@ -1,12 +1,24 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const mongoose = require("mongoose");
 const route = require("./route.js");
 const ejsMate = require("ejs-mate");
 const session = require("express-session");
 const passport = require('passport')
 const LocalStrategy = require("passport-local");
+const flash = require("connect-flash");
 require('dotenv').config(); 
+
+async function main() {
+    await mongoose.connect("mongodb://127.0.0.1:27017/Daman");
+  }
+  
+  main().then(() => {
+    console.log("connected database"); 
+  }) .catch(e => {
+    console.log(e);
+  });
 
 const {user : User} = require("./db.js");
 
@@ -28,6 +40,11 @@ app.use(express.static(path.join(__dirname, "../Frontend")));
 app.use(express.urlencoded({extended : true}));
 app.use(express.json());
 app.engine('ejs', ejsMate);
+app.use(flash());
+app.use((req, res, next) => {
+    res.locals.success = req.flash("success");
+    next();
+})
 
 app.use(passport.initialize());
 app.use(passport.session());

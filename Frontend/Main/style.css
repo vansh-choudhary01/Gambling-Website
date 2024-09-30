@@ -233,3 +233,82 @@ a {
     color : inherit;
     text-decoration: none;
 }
+
+.conform {
+    height: 850px;
+    background-color : rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    position :absolute;
+    top : 0;
+    z-index: 99;
+    
+}
+
+.center {
+    margin : 50px;
+    margin-top: 70px;
+}
+
+.para {
+    background-color : white;
+    padding : 20px 20px;
+    display : flex;
+    flex-direction : column;
+    text-align : center;
+    justify-content : space-evenly;
+    height : 320px;
+    line-height : 22px;
+    overflow : auto;
+}
+
+.para p {
+    margin-bottom : 20px;
+}
+
+.head {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    height : 45px;
+    display : flex;
+    justify-content : center;
+    align-items : center;
+    background-color : #FB6D6A;
+    color : white;
+    font-weight : 900;
+}
+
+.btn {
+    /* width : 80%; */
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    height : 75px;
+    display : flex;
+    justify-content : center;
+    align-items : center;
+    background-color : white;
+    color : white;
+    font-weight : 900;
+}
+
+.btn button{
+    width : 80%;
+    height : 60%;
+    color : white;
+    font-weight: 900;
+    border : none;
+    border-radius : 20px;
+    background-color : #FB6D6A;
+}
+
+.first {
+    font-weight : 550;
+}
+
+p b {
+    font-weight : 900;
+}
+
+a {
+    text-decoration : none;
+}

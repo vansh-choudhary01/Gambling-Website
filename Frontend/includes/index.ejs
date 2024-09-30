@@ -17,13 +17,19 @@
         </div>
     </a>
 
-    <div class="icon pro">
-        <div class="hera">
-            <img
-                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEfklEQVR4nO2Za4hWVRSGv2nGcqZ7ahYiUVlIN6ILlKREod0brR8VTUw3JI00DOmHBZUZRSVF9wtESGhGZf2QMsiiQLCgJCupKLrahUqxsuzyxLL36GJ39j7nfJeZb8AXBr5Za+2193vO2nvttU6ttgM70D4A9na/fyCOjcDxwDhgfcLuU/nqBEYMFIk9gCf0++DE4n4DTnbjjgR+TNiPlt3zwF6tJrEr8KYjcmFkUVuAM2VziP3p9wTgl8iYs2XzNPA60NMqEjsDyzXpVZItzFnQ30ZQ+jHAZ8AXwAGSnQr8njNuvvTX6f8VwC7NJmGx+4yb9FjJ7e14/ANMl24k8L7TfeTCZyrwZzB2hXQTnew5oKtZJHYCnnLON+vtdOaEyVyN2R14K+eprzadbPpFPMMGzdUTkHzS5I2S6AAeCRazSrqjA/lNkhvJl4njVWC4bGcFuvGSvxPI72+UyJ05C7lXuulOdl8kBGN4IQsZ4DYn75csfHjb9lA9JOZHFtEn/WP+1evtPU55LMpCBrhHsgf0/xWRMddXJXFtYgGHymaN34zA3VRH9ibtQSwG3nY5Jw+2p2aUJTEzMbHfkMuz49H2B/XjRvkYpmTYrTk2JshcXkSiX3kghldkt0+WsIBraBxXy1dPdv0BVibs7VSbGiMxLedsD7EgGHNxAfGysKd8WeD7joIxfwBnhCQmR7JtiG1PATinBPEq+As4z/k/v8SYX4FJpfbMDgwG+H+GjeFW2ffSOpxbkMdCXBmSscRWhK+UvbuAb2g+vtUxbMfv5yXsF8VqjbUlBk8pearUg9vle0oJ2zXRmsWydiIRZVjsbP3ttRkYL9+W5VP42arTov3SW7DAzS5phfVII3hDPvdUmRyDrW1a2c1fdG/aet+xJNZEIpfK54wqSbmISJfq5hhWu31VFIplsAnYTT6t+ErVMp2licjhaODrhNOjgut8I3hUvg5P2Fg7af9KJByZCeqI5OEu2ZzYBCInFIT0FuCkukg4MnMjzr+zM182vslQFR+6cF4fsZnVEAlN0JEoX3uDFk49mFNwW1jSMAlHxroiH+RMskz6fRMhmILdnveTj2U5+nXW2WwaEU10RE77xy/Eyt6qeDbxIDYBhzWVhCNzUSI0zqqDSNZWnRNrcrQM1ukIJlwreadao2Wx9QKqsXZv8ljYOgbbiQzLuZocJ92CCkSyksA+O3issiZfy4lo8rHA927yrB91UMmLpNmM05gHgyN9zICQcGROUZ2dtYm6JX+tBJGVsh0O/CSZ+Zo8oCQcmRvc4i6Q7JISRPpyvq9U6yI2mUiHmmqGlyTrVr0QwwbXE8ua3S+ar9pgwmoT4BP1t8ZK9nCCyEPuI5CF08ct/9RWFnYTVo9pXuQkyjvh5qlIO6bWTgD67OtsFiLAuzkk3nP268LuYttAnxUmJjr6s6WbZOFXa1fw33E6U79HBG1Y69WOkm52dly3LYBRLryWOiJLnc3I2lACcLojclptqILtHcMvKzcN2g3ALcDNtaEO4ED7G+x11IYK/gXZ9lxLLmKbjwAAAABJRU5ErkJggg==">
+    <% if(user.email === "coloro093@gmail.com") { %>
+    <a href="/user/promotion" class="icon">
+    <% } else { %>
+    <a href="" class="icon">
+    <% } %>
+        <div class="icon pro">
+            <div class="hera">
+                <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEfklEQVR4nO2Za4hWVRSGv2nGcqZ7ahYiUVlIN6ILlKREod0brR8VTUw3JI00DOmHBZUZRSVF9wtESGhGZf2QMsiiQLCgJCupKLrahUqxsuzyxLL36GJ39j7nfJeZb8AXBr5Za+2193vO2nvttU6ttgM70D4A9na/fyCOjcDxwDhgfcLuU/nqBEYMFIk9gCf0++DE4n4DTnbjjgR+TNiPlt3zwF6tJrEr8KYjcmFkUVuAM2VziP3p9wTgl8iYs2XzNPA60NMqEjsDyzXpVZItzFnQ30ZQ+jHAZ8AXwAGSnQr8njNuvvTX6f8VwC7NJmGx+4yb9FjJ7e14/ANMl24k8L7TfeTCZyrwZzB2hXQTnew5oKtZJHYCnnLON+vtdOaEyVyN2R14K+eprzadbPpFPMMGzdUTkHzS5I2S6AAeCRazSrqjA/lNkhvJl4njVWC4bGcFuvGSvxPI72+UyJ05C7lXuulOdl8kBGN4IQsZ4DYn75csfHjb9lA9JOZHFtEn/WP+1evtPU55LMpCBrhHsgf0/xWRMddXJXFtYgGHymaN34zA3VRH9ibtQSwG3nY5Jw+2p2aUJTEzMbHfkMuz49H2B/XjRvkYpmTYrTk2JshcXkSiX3kghldkt0+WsIBraBxXy1dPdv0BVibs7VSbGiMxLedsD7EgGHNxAfGysKd8WeD7joIxfwBnhCQmR7JtiG1PATinBPEq+As4z/k/v8SYX4FJpfbMDgwG+H+GjeFW2ffSOpxbkMdCXBmSscRWhK+UvbuAb2g+vtUxbMfv5yXsF8VqjbUlBk8pearUg9vle0oJ2zXRmsWydiIRZVjsbP3ttRkYL9+W5VP42arTov3SW7DAzS5phfVII3hDPvdUmRyDrW1a2c1fdG/aet+xJNZEIpfK54wqSbmISJfq5hhWu31VFIplsAnYTT6t+ErVMp2licjhaODrhNOjgut8I3hUvg5P2Fg7af9KJByZCeqI5OEu2ZzYBCInFIT0FuCkukg4MnMjzr+zM182vslQFR+6cF4fsZnVEAlN0JEoX3uDFk49mFNwW1jSMAlHxroiH+RMskz6fRMhmILdnveTj2U5+nXW2WwaEU10RE77xy/Eyt6qeDbxIDYBhzWVhCNzUSI0zqqDSNZWnRNrcrQM1ukIJlwreadao2Wx9QKqsXZv8ljYOgbbiQzLuZocJ92CCkSyksA+O3issiZfy4lo8rHA927yrB91UMmLpNmM05gHgyN9zICQcGROUZ2dtYm6JX+tBJGVsh0O/CSZ+Zo8oCQcmRvc4i6Q7JISRPpyvq9U6yI2mUiHmmqGlyTrVr0QwwbXE8ua3S+ar9pgwmoT4BP1t8ZK9nCCyEPuI5CF08ct/9RWFnYTVo9pXuQkyjvh5qlIO6bWTgD67OtsFiLAuzkk3nP268LuYttAnxUmJjr6s6WbZOFXa1fw33E6U79HBG1Y69WOkm52dly3LYBRLryWOiJLnc3I2lACcLojclptqILtHcMvKzcN2g3ALcDNtaEO4ED7G+x11IYK/gXZ9lxLLmKbjwAAAABJRU5ErkJggg==">
+            </div>
+            <h5>Promotion</h5>
         </div>
-        <h5>Promotion</h5>
-    </div>
+    </a>
 
     <a href="/user/withdrow" class="icon">
         <div class="icon">

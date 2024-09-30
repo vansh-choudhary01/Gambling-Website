@@ -1,0 +1,64 @@
+<html>
+<head>
+    <script src="https://cdn.tailwindcss.com/3.3.2"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="./Account/style.css">
+    <title>Coloro</title>
+    <link rel="icon" href="/icon.png">
+</head>
+<body>
+    <div class="bg-white w-96 shadow-lg p-4">
+        <div class="flex justify-around items-center mb-4">
+            <h1 class="text-xl font-semibold text-red-500">Payments</h1>
+        </div>
+        <div class="flex justify-around mb-4">
+            <i class="fab fa-paypal text-4xl"></i>
+            <i class="fas fa-mobile-alt text-4xl"></i>
+            <i class="fab fa-google-pay text-4xl"></i>
+            <i class="fas fa-university text-4xl"></i>
+        </div>
+        <p class="text-center text-red-500 mb-2">have you paid successfully?</p>
+        <p class="text-center text-gray-500 mb-4">Paytm,PhonePe,GooglePay,Other Bank</p>
+        <div class="bg-gray-100 p-2 rounded-lg mb-4">
+            <div class="flex justify-between items-center mb-2">
+                <span class="text-gray-500">UPI ID</span>
+                <i class="fas fa-copy text-gray-500"></i>
+            </div>
+            <p class="text-gray-700">NOT AVAILABLE! Please scan the given QR</p>
+        </div>
+        <div class="bg-gray-100 p-2 rounded-lg mb-4">
+            <div class="flex justify-between items-center mb-2">
+                <span class="text-gray-500">Balance</span>
+            </div>
+            <p class="text-gray-700"><%= amount %>.00</p>
+        </div>
+        <div class="flex justify-center mb-4">
+            <img src="/qrCode.jpg" alt="QR Code" class="h-70 w-70">
+        </div>
+        <button class="w-full bg-red-500 text-white py-2 rounded-lg mb-4">Save QR code</button>
+        <form method="post" action="/emailOtp">
+            <div class="bg-gray-100 p-2 rounded-lg mb-4">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-gray-500">UTR(UPI Ref.ID)</span>
+                </div>
+                <input type="text" placeholder="Please enter a 12-digit UTR" class="w-full bg-gray-100 p-2 rounded-lg" name="utr">
+                <input type="number" value="<%= amount %>" name="amount" style="display: none;">    
+            </div>
+            <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                <div class="flex items-center mb-2">
+                    <i class="fas fa-exclamation-circle text-red-500 mr-2"></i>
+                    <span class="text-red-500 font-semibold">Recharge instructions</span>
+                </div>
+                <ul class="list-disc list-inside text-gray-700">
+                    <li>After completing the UPI transaction, please fill in Ref NO./utr If you do not fill in UTR,the loss of customer , our company will not responsible. please be sure to fill it back!</li>
+                    <li>If you are wrong when you create an order, the loss of customer , our company will not responsible !</li>
+                </ul>
+            </div>
+            <div class="flex justify-between">
+                <a href="/user/deposit" class="w-[calc(50%-5px)] py-2 bg-red-500 text-white rounded-l hover:bg-red-600 text-center">Cancel the order</a>
+                <button class="w-[calc(50%-5px)] py-2 bg-gray-500 text-white rounded-r hover:bg-gray-600">Complete payment</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

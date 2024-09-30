@@ -1,16 +1,6 @@
 const mongoose = require("mongoose");
 const passportLocalMongoose = require('passport-local-mongoose');
 
-async function main() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/Daman");
-}
-
-main().then(() => {
-  console.log("connected database"); 
-}) .catch(e => {
-  console.log(e);
-});
-
 const userSchema = new mongoose.Schema({
   transaction: [],
   balance: {
@@ -29,14 +19,21 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true,  // Ensure that the username is unique
     trim: true
+  }, 
+  bank : {
+    name : String,
+    number : Number,
+    ifsc : String,
   }
-});
+}, { versionKey: false });
 
 userSchema.plugin(passportLocalMongoose, {usernameField: 'username'});
 const User = new mongoose.model("User", userSchema);
 
 const gameSchema = new mongoose.Schema({
-  period : Number,
+  period : {
+    type : Number,
+  },
   history : [
     {
       number : Number,
@@ -45,6 +42,22 @@ const gameSchema = new mongoose.Schema({
       _id : false,
     },
   ],
+  bigAmount : {
+    type : Number,
+    default : 0,
+  },
+  smallAmount : {
+    type : Number,
+    default : 0,
+  },
+  redAmount : {
+    type : Number,
+    default : 0,
+  },
+  greenAmount : {
+    type : Number,
+    default : 0,
+  },
 }, {versionKey : false});
 
 const Game = new mongoose.model("Game", gameSchema);

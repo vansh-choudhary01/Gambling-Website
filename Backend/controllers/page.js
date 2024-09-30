@@ -2,36 +2,39 @@ const { game: Game, user: User } = require("../db.js");
 
 
 module.exports.route = async(req, res) => {
-    await res.redirect("/login");                                                        
+    await res.redirect("/user");                                                        
 }
 
 module.exports.activity = async(req, res) => {
     let {_id} = req.user;
     let user = await User.findById(_id);
-    console.log(user);
     res.render("activity.ejs", {user});
 }
 
 module.exports.deposit = async(req, res) => {
     let {_id} = req.user;
     let user = await User.findById(_id);
-    console.log(user);
     res.render("deposit.ejs", {user});
 }
 
 module.exports.withdrow = async(req, res) => {
     let {_id} = req.user;
     let user = await User.findById(_id);
-    console.log(user);
     res.render("withdrow.ejs", {user});
 }
 
 module.exports.account = async(req, res) => {
     let {_id} = req.user;
     let user = await User.findById(_id);
-    console.log(user);
 
     res.render("Account/index.ejs", {user});
+}
+
+module.exports.promotion = async(req, res) => {
+    let {_id} = req.user;
+    let user = await User.findById(_id);
+
+    res.render("Admin/index.ejs", {user});
 }
 
 module.exports.bigSmall = async(req, res) => {

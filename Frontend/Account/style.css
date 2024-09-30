@@ -19,6 +19,9 @@ body {
         all: unset;
         font-size: 14px;
     }
+}
+
+.footer {
     /* background-color :rgb(255, 187, 0); */
     display : flex;
     justify-content : space-between;

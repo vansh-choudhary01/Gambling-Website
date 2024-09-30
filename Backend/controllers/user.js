@@ -1,5 +1,4 @@
 const { user: User } = require("../db.js");
-const nodemailer = require('nodemailer');
 
 module.exports.loginPage = async (req, res) => {
     let wrong = false;
@@ -13,17 +12,14 @@ module.exports.signupPage = async (req, res) => {
 
 
 module.exports.login = async (req, res) => {
-    let { _id } = req.user;
-    let user = await User.findById(_id);
-    console.log(user);
-    res.render("Main/index.ejs", { id : _id, user });
+    req.flash("success", "login");
+    res.redirect(`/user`);
 }
 
 module.exports.user = async (req, res) => {
     let { _id } = req.user;
     let user = await User.findById(_id);
-    console.log(user);
-    res.render("Main/index.ejs", { id : _id, user });
+    res.render("Main/index.ejs", { id: _id, user });
 }
 
 module.exports.signUp = async (req, res, next) => {
@@ -40,9 +36,10 @@ module.exports.signUp = async (req, res, next) => {
 
         req.login(registeredUser, (err) => {
             if (err) next(err);
+            req.flash("success", "signUp");
             res.redirect(`/user`);
         })
-    } catch(e) {
+    } catch (e) {
         console.log(e);
         let wrong = true;
         res.render("SignUpPage/index.ejs", { wrong });
@@ -51,36 +48,25 @@ module.exports.signUp = async (req, res, next) => {
 
 module.exports.logout = async (req, res, next) => {
     req.logout((e) => {
-        if(e) return next(e);
+        if (e) return next(e);
         res.redirect('/login');
     })
 }
 
-const sendOTPEmail = async(email, otp) => {
-    let transporter = nodemailer.createTransport({
-        service : 'gmail', 
-        auth : {
-            user : process.env.ADMIN_EMAIL,
-            pass : process.env.ADMIN_PASS,
-        }
-    });
-
-    let mailOptions = {
-        from : process.env.ADMIN_EMAIL,
-        to : email,
-        subject : 'OTP CODE FROM COLORO',
-        text : `Hello I'm from coloro. \n Your otp is ${otp}`
-    };
-
-    try {
-        await transporter.sendMail(mailOptions);
-    } catch (e) {
-        console.log("Error", e);
+module.exports.Admin = async(req, res, next) => {
+    let {amount, number : username, email} = req.body;
+    amount = parseInt(amount);
+    if(username) {
+        let user = await User.findOne({username});
+        if(!user) return res.redirect("/user/promotion");
+        user.balance += amount;
+        user.save();
+    } else if (email) {
+        let user = await User.findOne({email});
+        if(!user) return res.redirect("/user/promotion");
+        user.balance += amount;
+        user.save();
     }
-}
-
-module.exports.emailOtp = (req, res) => {
-    let {email, otp} = req.body;
-    console.log(req.body);
-    sendOTPEmail(email, otp);
+    req.flash("success", "Sent");
+    res.redirect("/user/promotion");
 }

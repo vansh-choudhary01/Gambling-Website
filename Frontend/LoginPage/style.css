@@ -36,9 +36,8 @@ body {
 
 .nav span {
     color : white;
-    position : absolute;
-    /* right : 100px; */
-    left : 25px;
+    position: relative;
+    left: 10px;
 }
 
 header {

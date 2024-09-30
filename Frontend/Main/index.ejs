@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com/3.3.2"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="/icon.png">
     <link rel="stylesheet" href="/Main/style.css">
-    <title>Document</title>
+    <title>Coloro</title>
 </head>
 
 <header class="flex items-center justify-between p-4 bg-white">
@@ -27,6 +28,31 @@
 </header>
 
 <body>
+    <% if(success && success.length) {%>
+        <div class="conform">
+            <div class="center">
+                <div class="head">Notification</div>
+                <% if(success == "login") {%>
+                    <div class="para">
+                        <p class="first">Due to the fact recently that there have been too many fake websites that are pretending to be out company, Members please remember ColoroWorld.com to check whether out coloro website is available.</p>
+            
+                        <p>Be part of our <b>Coloro Official Channel</b> to get updated with spactacular Events , good news and various announcement. Thank you for supporting Daman all the way and keep spreading #ColoroGames</p>
+            
+                        <p>VIP GOLD REWARD for the monthe of 1 july To 30 August. Get a chance to win Click the link below for more information COLOROWORLD.VIP
+                        </p>
+            
+                    </div>
+                <% } else { %>
+                    <div class="para">
+                        <img src="/Main/img/Screenshot 2024-09-30 105547.png" alt="" style="width: 100%; height: 100%;">
+                    </div>
+                <% } %>
+                <div class="btn">
+                    <button id="notification">Confirm</button>
+                </div>
+            </div>
+        </div>
+    <% } %>
     <div class="main">
         <div>
             <div class="cards">
@@ -76,4 +102,12 @@
             </div>
         </div>
     </div>
+    <script>
+        let btn = document.querySelector("#notification");
+        let conform = document.querySelector(".conform");
+
+        btn.addEventListener("click", () => {
+            conform.style.display = "none";
+        })
+    </script>
     <%- include('../includes/index.ejs') %>

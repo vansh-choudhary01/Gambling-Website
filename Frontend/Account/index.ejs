@@ -6,8 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account Page</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com/3.3.2"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="icon" href="/icon.png">
     <link rel="stylesheet" href="/Account/style.css">
 </head>
 
@@ -21,10 +22,10 @@
                 <div class="ml-4">
                     <div class="text-lg font-bold">MEMBERNNGMOUZ3</div>
                     <div class="flex items-center text-sm">
-                        <span class="bg-yellow-400 text-black px-2 py-1 rounded">UID: 1840553</span>
+                        <span class="bg-yellow-400 text-black px-2 py-1 rounded">UID: <%= user._id.toString().substring(0, 7) %></span>
                         <i class="fas fa-copy ml-2"></i>
                     </div>
-                    <div class="text-xs">Last login: 2024-09-24 14:46:15</div>
+                    <div class="text-xs">Last login: <% let data = new Date(Date.now()) %> <%= data.toString().substring(0, 25) %></div>
                 </div>
                 <div class="ml-auto">
                     <div class="bg-blue-500 text-white px-2 py-1 rounded">VIP1</div>
